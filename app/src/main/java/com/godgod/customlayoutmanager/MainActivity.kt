@@ -5,13 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.godgod.customlayoutmanager.databinding.ActivityMainBinding
 import com.godgod.customlayoutmanager.databinding.ViewholderTestBinding
-import com.google.android.flexbox.FlexDirection.ROW
-import com.google.android.flexbox.FlexboxLayout
-import com.google.android.flexbox.FlexboxLayoutManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,9 +17,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-       /* binding.rv.layoutManager = FlexboxLayoutManager(this)*/
+        /* binding.rv.layoutManager = FlexboxLayoutManager(this)*/
         binding.rv.layoutManager = VerticalFlowLayoutManager()
-   /*     binding.rv.layoutManager = LinearLayoutManager(this)*/
+        /*     binding.rv.layoutManager = LinearLayoutManager(this)*/
         binding.rv.adapter = TestAdapter()
         (binding.rv.adapter as TestAdapter).setAll(createViewDatas())
     }
@@ -31,12 +27,8 @@ class MainActivity : AppCompatActivity() {
     private fun createViewDatas(): List<String> {
         val list: MutableList<String> = mutableListOf()
 
-        for (i in 0 until 1000) {
-            if(i % 10 == 0) {
-                list.add("godgodgodogdogodgodgodgodogodgodgodogdo $i")
-            } else {
-                list.add("godgod $i")
-            }
+        for (i in 0 until 100) {
+            list.add("godgod $i")
         }
 
         return list
